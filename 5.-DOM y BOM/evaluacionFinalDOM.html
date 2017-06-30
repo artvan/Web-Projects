@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi Proyecto Final DOM</title>
+</head>
+ <style type="text/css">
+   body{
+     background-color: #F2EDED;
+   }
+ </style>
+<body>
+
+    <form>
+      <fieldset>
+        <legend><h1>Registro Estudiante</h1></legend>
+        <label>Código</label><br>
+           <input type="text" id= "codigo"  size="35"/><br>
+           <label>Nombre</label><br>
+           <input type="text" id= "nombre" size="35"/><br>
+           <label>Nota</label><br>
+           <input type="text" id= "nota" style="width:24.2%";/>
+      </fieldset> 
+    </form>
+
+    <br>
+    <button id="boton1">Registrar Estudiante</button>
+    <button id="boton2">Mostrar Promedio</button>
+    <button id="boton3">Mostrar Nota Mayor</button>
+    <button id="boton4">Mostrar Nota Menor</button>
+
+    <h1>Listado de Estudiantes</h1>
+
+    <table id="tablaEstudiantes" border="1">
+        <tr>
+            <th>Codigo</th>
+            <th>Nombre</th>
+            <th>Nota</th>
+        </tr>
+
+    </table>
+</body>
+<script>
+var estudiantes = [];
+
+
+function registrarEstudiante() {
+
+    var codigo = document.getElementById("codigo").value;
+    var nombre = document.getElementById("nombre").value;
+    var nota = parseFloat(document.getElementById("nota").value);
+
+
+    var estudiante = {
+        codigo: codigo,
+        nombre: nombre,
+        nota: nota
+    }
+
+    estudiantes.push(estudiante);
+
+    var tablaEstudiantes = document.getElementById("tablaEstudiantes");
+    var tr = document.createElement('tr');
+    var td1 = document.createElement('td');
+    var td2 = document.createElement('td');
+    var td3 = document.createElement('td');
+
+
+    var text1 = document.createTextNode(estudiante.codigo);
+    var text2 = document.createTextNode(estudiante.nombre);
+    var text3 = document.createTextNode(estudiante.nota);
+
+    td1.appendChild(text1);
+    td2.appendChild(text2);
+    td3.appendChild(text3);
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+
+    tablaEstudiantes.appendChild(tr);
+
+    limpiarCampos();
+
+
+}
+ function Promedio(json) //Funcion que calcula el promerio de las notas
+       {
+
+        var pro = 0;//Variable para almacenar el promedio de los estudiantes.
+        var sum = 0;//Variable que acumula las notas.
+
+          for(var i=0; i<estudiantes.length; i++)//Ciclo para recorrer la cantidad de elementos del Json
+             {
+               sum +=estudiantes[i].nota;//Acumulacion y suma de las notas,
+             }
+               pro = sum/estudiantes.length;//La suma total entre la cantuidad de elementos = promedio
+                                      // Impresion del promedio
+               alert("El Promedio de los Estudiantes es: "+pro);
+       } 
+ 
+ function notaMayor(json) //Funcion para calculas las nota mayores de los estudiantes. 
+       {
+        var NotaMayor = estudiantes[0].nota;//Se toma al primer elemento del Json como nota mayor. 
+        var pos = 0; //Y su a posicion se le asigna el valor 0;
+        var aux = ""; //Se declara la variable aux para ir acumulando los nombres.
+
+        for( i=0; i < estudiantes.length; i++) //El ciclo continuara hasta que llegue al ultimo elemento del Json de acuerdo a su longitud
+          {
+            if(estudiantes[i].nota >= 90)//Si la nota es mayor o igual a 90...
+            {
+              NotaMayor = estudiantes[i].nota;//...NotaMayor toma su valor
+              pos = i; //pos toma el valor de indice de i
+              aux = aux + estudiantes[pos].nombre + '\n';//aux suma y acumula los nombres
+            }
+          }
+          alert("Los Estudiantes con MAYOR Nota son:\n "+aux);
+        }  
+
+ function notaMenor(json) //Funcion para calcular la nota menor
+       {
+        var NotaMenor = estudiantes[0].nota;//Nota menor toma el valor del primer elemento del Json
+        var pos = 0;//Se declara el valor de pos con el valor 0.
+        var aux ="";//Se declara aux con "" para almacenar cadena de caracteres
+
+         for(var i = 0; i < estudiantes.length; i++)//Ciclo para recorrer la cantidad de elementos
+           {
+            if(estudiantes[i].nota <= 70)//Si la nota es menor o igual a 70...
+             {
+               NotaMenor = estudiantes[i].nota;//...NotaMenor toma su valor.  
+               pos = i;//pos toma el valor de indice de i
+               aux = aux + estudiantes[pos].nombre + '\n';//aux suma y acumula los nombres
+             }
+           }
+           alert("Los Estudiantes con MENOR Nota son: \n" +aux);
+       }    
+
+function limpiarCampos() {
+    document.getElementById("codigo").value = "";
+    document.getElementById("nombre").value = "";
+    document.getElementById("nota").value = "";
+}
+
+document.getElementById("boton1").addEventListener("click", function() {
+    registrarEstudiante();
+});
+
+document.getElementById("boton2").addEventListener("click", function() {
+    Promedio();
+});
+
+document.getElementById("boton3").addEventListener("click", function() {
+    notaMayor();
+});
+
+document.getElementById("boton4").addEventListener("click", function() {
+    notaMenor();
+});
+  
+</script>
+
+</html>

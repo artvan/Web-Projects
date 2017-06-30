@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset ="UTF-8">
+    <title>Evaluacion Final jQuery</title>
+      
+      <style>
+          table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 40%;
+          }
+
+          td, th {
+              border: 1px solid #dddddd;
+              text-align: center;
+              padding: 8px;
+          }
+
+          span{
+              display: none;
+          }
+
+          input[type=text]:focus {
+              background-color: #F1F1F1;
+          }
+
+     </style>
+
+    <script src="jquery.js"></script>
+    <script type="text/javascript">
+  
+      function editarEstudiante(codigo){
+       var Alumno;
+        for(var i=0; i < localStorage.length; i++){
+          var clave = localStorage.key(i);
+           if(clave == codigo){
+             Alumno = $.parseJSON(localStorage.getItem(clave));
+
+             $("#codigo").val(Alumno.codigo);
+             $("#nombre").val(Alumno.nombre);
+             $("#nota").val(Alumno.nota);
+           }
+        }
+      }
+
+      function listarAlumnos(){
+       var tabla = "";
+       var linea1= $("#p1");
+
+       tabla += '<table border="1">';
+       tabla += '<tr>';
+       tabla += '<th>Codigo</th>';
+       tabla += '<th>Nombre</th>'; 
+       tabla += '<th>Nota</th>';
+       tabla += '<th>Editar</th>';
+       tabla += '<th>Eliminar</th>';
+       tabla += '</tr>';
+
+       for(var i=0; i < localStorage.length; i++){
+          var clave = localStorage.key(i);
+          var Alumno = $.parseJSON(localStorage.getItem(clave));
+
+          tabla += '<tr>';
+          tabla += '<td>'+Alumno.codigo+'</td>';
+          tabla += '<td>'+Alumno.nombre+'</td>';
+          tabla += '<td>'+Alumno.nota+'</td>';
+          tabla += '<td><button onclick="editarEstudiante(\''+Alumno.codigo+'\');">Editar</button></td>';
+          tabla += '<td><button onclick="eliminarEstudiante(\''+Alumno.codigo+'\');">Eliminar</button></td>';
+          tabla += '</tr>';
+       }
+          tabla += '</table>';
+          $(linea1).html(tabla);
+    }
+
+      function eliminarEstudiante(codigo){
+        localStorage.removeItem(codigo);
+        listarAlumnos();
+      }
+
+      $(document).ready(function(){
+        var contador;
+         if(localStorage.length > 0){
+            contador = localStorage.length+1;
+         }else{
+            contador = 1;
+          }
+
+          $("#codigo").val(contador);
+
+          $("#boton1").click(function(){
+            var codigo = $("#codigo").val();
+            var nombre = $("#nombre").val();
+            var nota   = $("#nota").val();
+
+            var Alumno = {
+              codigo: codigo,
+              nombre: nombre,
+              nota: nota
+            };
+
+            localStorage.setItem(codigo,JSON.stringify(Alumno));
+            contador = localStorage.length + 1;
+
+            listarAlumnos();
+            restablecer(); 
+          });
+
+          $("#boton2").click(function(){
+             restablecer(9);
+          });
+
+            function restablecer(){
+               $("#codigo").val(contador);
+               $("#nombre").val("");
+               $("#nota").val("");
+              }
+
+            listarAlumnos();
+             $("nota").val();
+
+          $("#boton3").click(function(){
+             Promedio();
+          });
+
+          $("#boton4").click(function(){
+             notaMayor();
+          });
+
+          $("#boton5").click(function(){
+             notaMenor();
+          });
+
+          function Promedio(codigo) 
+          {
+
+            var sum = 0.0;
+            var i; 
+            for(i=0; i<localStorage.length; i++)
+            {
+            var clave = localStorage.key(i);
+            var Alumno = $.parseJSON(localStorage.getItem(clave));
+            sum += parseFloat(Alumno.nota);
+            }
+            sum/=localStorage.length;
+
+            alert("El Promedio de los Estudiantes es: "+sum);
+          }
+      
+           function notaMayor(codigo){
+              
+              var pos = 0; 
+              var aux = ""; 
+              var i;
+
+              for( i=0; i < localStorage.length; i++) 
+                {
+                  var clave = localStorage.key(i);
+                  var Alumno = $.parseJSON(localStorage.getItem(clave));
+
+                  if((Alumno.nota) >= 9)
+                  {
+                    NotaMayor = parseFloat(Alumno.nota);
+                    pos = i; 
+                    aux = aux + (Alumno.nombre) +'\n';
+                  }
+                }
+                alert("Los Estudiantes con MAYOR Nota son:\n " +aux);
+              }  
+
+            function notaMenor(codigo) 
+             {
+         
+              var pos = 0;
+              var aux ="";
+              var i;
+
+               for(var i = 0; i < localStorage.length; i++)
+                 {
+                  var clave = localStorage.key(i);
+                  var Alumno = $.parseJSON(localStorage.getItem(clave));
+
+                  if(Alumno.nota <= 7)
+                   {
+                     NotaMenor = parseFloat(Alumno.nota); 
+                     pos = i;
+                     aux = aux + (Alumno.nombre) +'\n';
+                   }
+                 }
+                 alert("Los Estudiantes con MENOR Nota son:\n" +aux);
+               }
+      
+         });  
+
+        $(document).ready(function(){
+         $("input").focus(function(){
+               $(this).next("span").css("display","inline").fadeOut(2500);
+               $(this).next("span").css("color","blue");
+             });       
+        });
+    </script>
+
+  </head>
+ <body>
+    <form>
+      <fieldset>
+        <legend><h1>Registro Estudiante</h1></legend>
+           <label>Código</label><br>
+           <input type="text" id= "codigo"  size="35"/><br>
+           <label>Nombre</label><br>
+           <input type="text" id= "nombre" size="35"/><span>Ingresa tu nombre</span><br>
+           <label>Nota</label><br>
+           <input type="text" id= "nota" style="width:23.9%";/><span>Ingresa tu Calificación</span>
+      </fieldset> 
+    </form>
+
+    <br>
+    <button id="boton1">Registrar Estudiante</button>
+    <button id="boton2">Restablecer</button>
+    <button id="boton3">Mostrar Promedio</button>
+    <button id="boton4">Mostrar Nota Mayor</button>
+    <button id="boton5">Mostrar Nota Menor</button>
+
+    <h1>Listado de Estudiantes</h1>
+    <p id="p1"></p>
+
+ </body>
+</html>

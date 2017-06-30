@@ -1,0 +1,52 @@
+/* app css stylesheet */
+
+body {
+  padding-top: 20px;
+}
+
+
+ul.specs {
+  clear: both;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.specs > li{
+  display: inline-block;
+  width: 200px;
+  vertical-align: top;
+}
+
+ul.specs > li > span{
+  font-weight: bold;
+  font-size: 1.2em;
+  font-family: 'Source Code Pro', monospace;
+}
+
+ul.specs dt {
+  font-weight: bold;
+}
+
+h1 {
+  border-bottom: 1px solid black;
+}
+
+
+
+#homeButton{
+            display:block;
+            margin:0 auto 0 auto;
+}
+
+#homeButton:hover{
+             opacity: 0.7;
+            -webkit-transform: scale(1.2);
+             transform: scale(1.2)
+} 
+
+img:hover{
+            
+            -webkit-transform: scale(1.07);
+             transform: scale(1.07)
+}

@@ -1,0 +1,24 @@
+[
+
+    {
+        "model": 2017, 
+        "id": "visionNext100", 
+        "imageUrl": "img/bmw/visionNext100.jpg", 
+        "name": "Vision Next 100", 
+        "snippet": "The Future Is Near To Go further"
+    },
+    {
+        "model": 2017, 
+        "id": "RT250", 
+        "imageUrl": "img/italikaMX/RT250.jpg", 
+        "name": "RT250", 
+        "snippet": "Exceed Your Limits With Comfort And Control"
+    },
+    {
+        "model": 2016, 
+        "id": "iron883", 
+        "imageUrl": "img/harleyDavidson/iron883.jpg", 
+        "name": "Iron 883", 
+        "snippet": "The Road Is Yours"
+    }
+]

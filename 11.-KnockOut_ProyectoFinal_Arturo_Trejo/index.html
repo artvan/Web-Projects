@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="js/jquery-2.1.3.js "></script>
+        <script src="js/kendo.all.min.js"></script>
+        <script src="js/knockout-3.1.0.js"></script>
+        <script src="js/knockout-kendo.min.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/kendo.validator.min.js"></script>
+        <script type="text/javascript" src="js/kendo.web.min.js"></script>
+
+        <link href="css/kendo.common-bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/kendo.bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/kendo.dataviz.min.css" rel="stylesheet"/>
+        <link href="css/kendo.dataviz.bootstrap.min.css" rel="stylesheet"/>
+
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
+        <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" >
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+
+    </head>
+      <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+    width: 100%;
+    margin: auto;
+    max-width: 500px;
+  }
+  #myCarousel{
+    margin-top: 11px;
+  }
+  </style>
+
+    <body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">TREDLON Technology</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="lista.html">Productos</a></li>
+        <li><a href="comprar.html">Comprar</a></li>
+        <li><a href="contacto.html">Contactanos</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+        <br>
+        <br>
+
+                          <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                              <li data-target="#myCarousel" data-slide-to="1"></li>
+                              <li data-target="#myCarousel" data-slide-to="2"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                              <div class="item active">
+                                <img src="media/img1.jpg" alt="Tablet" width="460" height="345">
+                              </div>
+
+                              <div class="item">
+                                <img src="media/img2.jpg" alt="SmartPhone" width="460" height="345">
+                              </div>
+                            
+                              <div class="item">
+                                <img src="media/img3.jpg" alt="SmartWatch" width="460" height="345">
+                              </div>
+
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                              <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                              <span class="sr-only">Next</span>
+                            </a>
+                          </div>
+
+
+        <div class="container">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-6">
+                        <h1>Bienvenid@ a la Tienda OnLine </h1>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h3 class="panel-title"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Knockout JS</h3>
+                          </div>
+                          <div class="panel-body">
+                            Knockout is a JavaScript library that helps you to create rich, responsive display and editor user interfaces with a clean underlying data model. Any time you have sections of UI that update dynamically (e.g., changing depending on the user’s actions or when an external data source changes), KO can help you implement it more simply and maintainably. To learn more, be sure to look at the documentation, examples, and tutorials.
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h3 class="panel-title"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Knockout-Kendo UI</h3>
+                          </div>
+                          <div class="panel-body"> 
+                            Kendo UI provides fast, clean, and configurable HTML5 UI widgets as part of a jQuery-based framework to support modern web development. A project to create a complete and robust set of Knockout.js bindings for the Kendo UI widgets. Browse the doocumentation/examples for each individual widget for usage information. This is the combination of KnockOut and Kendo.
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h3 class="panel-title"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Bootstrap</h3>
+                          </div>
+                          <div class="panel-body">
+                            Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web. It makes front-end web development faster and easier. It's made for folks of all skill levels, devices of all shapes, and projects of all sizes.
+
+                            Bootstrap ships with vanilla CSS, but its source code utilizes the two most popular CSS preprocessors, Less and Sass. Quickly get started with precompiled CSS or build on the source.
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>

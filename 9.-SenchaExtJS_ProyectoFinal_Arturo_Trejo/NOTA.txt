@@ -1,0 +1,1 @@
+Esta aplicación debe correrse desde localhost con Apache Server.

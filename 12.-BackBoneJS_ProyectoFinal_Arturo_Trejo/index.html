@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Trabajo Final Backbone JS</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+</head>
+<body>
+
+	<div class="container" id="contenedorVistas">
+
+	</div>
+
+	<script type="text/template" id="plantillaInicio">
+		<form>
+		<legend>CRM Empesarial</legend>
+
+			<div class="form-group">
+				<button id="btnVistaRegistrarCliente" class="btn btn-success">Registrar Cliente</button>
+				<button id="btnVistaListadoClientes" class="btn btn-success">Listar Clientes</button>
+			</div>
+
+		</form>
+
+	</script>
+
+	<script type="text/template" id="plantillaRegistroCliente">
+		<form>
+			<legend>Registrar Cliente</legend>
+			<div class="form-group">
+				<label class="control-label" for="id">Id:</label>
+				<input type="text" class="form-control" id="id" / disabled>
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="nombre">Nombre:</label>
+				<input type="text" class="form-control" id="nombre"/>
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="apellido">Apellido:</label>
+				<input class="form-control" id="apellido"/>
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="edad">Edad:</label>
+				<input class="form-control" id="edad"/>
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="telefono">Telefono:</label>
+				<input class="form-control" id="telefono"/>
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="email">Email:</label>
+				<input class="form-control" id="email"/>
+			</div>
+			<div class="form-group">
+				<button id="btnRegistrarCliente" class="btn btn-success">Registrar</button>
+				<button type="reset" class="btn">Cancelar</button>
+				<button id="btnSalir" class="btn">Salir</button>
+			</div>
+		</form>
+	</script>
+
+	<script type="text/template" id="plantillaListadoClientes">
+		<form>
+			<legend>Listado de Clientes</legend>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<td>Id</td>
+						<td>Nombre</td>
+						<td>Apellido</td>
+						<td>Edad</td>
+						<td>Telefono</td>
+						<td>Email</td>
+						<td>Acciones</td>
+						<td>Acciones</td>
+					</tr>
+				</thead>
+				<tbody id="listaClientes"></tbody>
+			</table>
+			<div class="form-group">
+				<button id="btnSalir" class="btn">Salir</button>
+			</div>
+		</form>
+	</script>
+
+	<div class="modal fade" id="modalMostrarCliente" tabindex="-1" role="dialog" aria-hidden="true">
+		
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Detalle de Cliente</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="detalleId">Id:</label>
+							<input type="text" class="form-control" id="detalleId" name="" readonly>
+						</div>
+						<div class="form-group">
+							<label for="detalleNombre">Nombre:</label>
+							<input type="text" class="form-control" id="detalleNombre" name="" readonly>
+						</div>
+						<div class="form-group">
+							<label for="detalleApellido">Apellido: </label>
+							<input type="text" class="form-control" id="detalleApellido" name="" readonly>
+						</div>
+						<div class="form-group">
+							<label for="detalleEdad">Edad: </label>
+							<input type="text" class="form-control" id="detalleEdad" name="" readonly>
+						</div>
+						<div class="form-group">
+							<label for="detalleTelefono">Telefono: </label>
+							<input type="text" class="form-control" id="detalleTelefono" name="" readonly>
+						</div>
+						<div class="form-group">
+							<label for="detalleEmail">Email: </label>
+							<input type="text" class="form-control" id="detalleEmail" name="" readonly>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				</div> 
+			</div>
+		</div>
+
+	</div>
+
+
+</body>
+
+<script type="text/javascript" src="js/plugins/jquery.js"></script>
+<script type="text/javascript" src="js/plugins/bootstrap.js"></script>
+<script type="text/javascript" src="js/plugins/underscore.js"></script>
+<script type="text/javascript" src="js/plugins/backbone.js"></script>
+<script type="text/javascript" src="js/plugins/backbone.localStorage.js"></script>
+<script type="text/javascript" src="js/models.js"></script>
+<script type="text/javascript" src="js/collections.js"></script>
+<script type="text/javascript" src="js/router.js"></script>
+<script type="text/javascript" src="js/views.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="jquery.mobile-1.4.5/jquery.mobile-1.4.5.css">
+
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="jquery.mobile-1.4.5/jquery.mobile-1.4.5.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      
+      $("#botonCalcular").click(function(){
+         var precioProducto = parseFloat($("#precioProducto").val());
+         var ivaProducto = precioProducto * 0.16;
+
+         $("#ivaProducto").val(ivaProducto);
+      });
+
+      $("#botonLimpiar").click(function(){
+         $("#precioProducto").val("");
+         $("#ivaProducto").val("");
+      });
+
+    });
+  </script>
+
+ </head>
+ <body>
+   <div data-role="page" id="pagIVA">
+
+     <div data-role="header">
+       <h1>Cálculo de IVA</h1>
+     </div>
+
+     <div data-role="content">
+
+       <form>
+          <div class="ui-field-contain">
+
+             <label for="precioProducto">Precio del producto:</label>
+             <input type="text" name="precioProducto" id="precioProducto"/>
+      
+          </div>
+
+          <div class="ui-field-contain">
+
+             <label for="ivaProducto">IVA del producto:</label>
+             <input type="text" name="ivaProducto" id="ivaProducto" readonly/>
+      
+          </div>
+
+          <a id="botonCalcular" data-role="button">Calcular</a>
+          <a id="botonLimpiar" data-role="button">Limpiar</a>
+       </form>
+
+     </div>
+
+    <div data-role="footer">
+         <p align="center">NextU</p>
+    </div>
+   </div>
+ </body>
+</html>

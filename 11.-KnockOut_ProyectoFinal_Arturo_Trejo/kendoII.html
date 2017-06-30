@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="js/jquery-2.1.3.js "></script>
+        <script src="js/kendo.all.min.js"></script>
+        <script src="js/knockout-3.1.0.js"></script>
+        <script src="js/knockout-kendo.min.js"></script>
+        <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/kendo.validator.min.js"></script>
+        <script type="text/javascript" src="js/kendo.web.min.js"></script>
+
+        <link href="css/kendo.common-bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/kendo.bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/kendo.dataviz.min.css" rel="stylesheet"/>
+        <link href="css/kendo.dataviz.bootstrap.min.css" rel="stylesheet"/>
+
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
+        <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" >
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+
+    </head>
+    <body>
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-role="#navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="kendoI.html">Knockout-Kendo & Kendo-UI</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#"></a>
+                        <li class="dropdown">
+                            <ul class="dropdown-menu">
+
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+        <br>
+        <br>
+        <div class="container">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-6">
+                        <h1>Tiqueck OnLine !</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <form role="form" id="boleta">
+                <br>
+                <section class="well">
+                    <div class="form-horizontal form-widgets col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="name">Nombre (Persona)</label>
+                            <div class="col-sm-8 col-md-6">
+                                <input type="text" data-bind="kendoMaskedTextBox: nombre" id="nombre" required validationMessage="Enter {0}"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="birthday">Fecha de la Pelicula</label>
+                            <div class="col-sm-8 col-md-6">
+                                <input data-bind="kendoDatePicker: startDate" id="fecha"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="name">Nombre de la Pelicula</label>
+                            <div class="col-sm-8 col-md-6">
+                                <input type="text" data-bind="kendoMaskedTextBox:npelicula" id="nompelicula" placeholder="Nombre exacto"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="language">Hora de Funcion:</label>
+                            <div class="col-sm-8 col-md-6">
+                                <input data-bind="kendoComboBox: { data: hora, value: selectHora } " id="horaFuncion"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-horizontal form-widgets col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="occupation">identificacion de quien compra:</label>
+                            <div class="col-sm-8 col-md-6">
+                                <input type="text" data-bind="kendoMaskedTextBox: iden" id="identificacion" required="Necesario" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="skills">Email</label>
+                            <div class="col-sm-8 col-md-6">
+                                <input type="text" data-bind="kendoMaskedTextBox: correo" id="email" placeholder="example@mydomain.com"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="experience">Telefono:</label>
+                            <div class="col-sm-8 col-md-6">
+                                <input type="text" data-bind="kendoMaskedTextBox: telf" id="telef"  placeholder="(+57)"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-horizontal form-widgets col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4" for="occupation">Numero de fila:</label>
+                                <div class="col-sm-8 col-md-6">
+                                    <input data-bind="kendoNumericTextBox: nfila" id="nufila" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                        <div class="clearfix"></div>
+
+                        <div data-bind="kendoGrid: { data: boletas, groupable: true, scrollable: true, sortable: true, pageable: { pageSize: 10 } }"> </div>
+
+
+                        <div class="buttons-wrap">
+                            <button data-bind="click:agregarFuncion">Registrar</button>
+                            <input type="reset" value="Cancelar" name="Cancelar" />
+                        </div>
+                </section> 
+            </form>
+        </div>
+        <div class="container">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-6">
+                        <h1>Funciones </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div data-bind="kendoScheduler: config"> </div>
+        </div>
+        
+        <script>
+            var ViewModel = function () {
+
+                var self = this;
+
+                //array de datos general
+                self.boletas = ko.observableArray([
+                    {nombre:"", identificacion:"", fecha_pelicula:"", email:"", nombre_pelicula:"", telefono:"", hora_funcion:"", numero_fila:""}
+                ]);
+                //formulario
+                self.nombre = ko.observable("");
+                self.startDate = ko.observable(new Date());
+                self.npelicula = ko.observable("");
+                self.hora = ko.observableArray(["14:00", "15:30", "17:00", "20:15", "21:00", "22:15", "Ultima Funcion"])
+                self.selectHora = ko.observable();
+                // segunda parte del formulario
+                self.iden = ko.observable("");
+                self.correo = ko.observable("");
+                self.telf = ko.observable("");
+                self.nfila = ko.observable(0);
+
+                // Informacion del Schulder para luego modificar
+                self.config = {
+                    date: new Date("2015/6/13"),
+                    startTime: new Date("2015/6/13 14:00"),
+                    endTime: new Date("2015/6/14 23:59"),
+                    height: 600,
+                    editable: false,
+                    dataSource: [
+                        {
+                            title: "Fast and furious 6",
+                            start: new Date("2015/6/13 17:00"),
+                            end: new Date("2015/6/13 18:30")
+                        },
+                        {
+                            title: "The Internship",
+                            start: new Date("2015/6/13 14:00"),
+                            end: new Date("2015/6/13 15:30")
+                        },
+                        {
+                            title: "The Perks of Being a Wallflower",
+                            start: new Date("2015/6/13 16:00"),
+                            end: new Date("2015/6/13 17:30")
+                        },
+                        {
+                            title: "The Help",
+                            start: new Date("2015/6/13 12:00"),
+                            end: new Date("2015/6/13 13:30")
+                        }
+                    ]
+                };
+                
+                self.agregarFuncion = function (){
+                    
+                    var n = $('#nombre').val();
+                    var fp = $('#fecha').val();
+                    var np = $('#nompelicula').val();
+                    var hf = $('#horaFuncion').val();
+                    var co = $('#email').val();
+                    var i = $('#identificacion').val();
+                    var tl = $('#telef').val();
+                    var nf = $('#nufila').val();
+                    
+                    self.boletas.push({nombre:n, identificacion:i, fecha_pelicula:fp, email:co, nombre_pelicula:np, telefono:tl, hora_funcion:hf, numero_fila:nf});
+                    
+                    alert("Se registro Bolata para el cine");
+                    window.print();
+                };
+                
+                self.borrar = function (){
+                    self.Datos.remove();
+                };
+                
+                 
+            };
+            ko.applyBindings(new ViewModel());
+        </script>
+    
+    </body>
+</html>

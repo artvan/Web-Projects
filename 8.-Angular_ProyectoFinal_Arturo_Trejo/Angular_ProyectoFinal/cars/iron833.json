@@ -1,0 +1,33 @@
+{
+    "manufacter": {
+        "name": "Harley Davidson", 
+        "country": "United States"
+    }, 
+    "engine": {
+        "gears": "6", 
+        "transmission": "Manual", 
+        "type": "Air-cooled, V-Twin and Electronic Sequential Port Fuel Injection (ESPFI)"
+    }, 
+    "description": "A Great step towards the dark arts.",  
+    "id": "fjr13000", 
+    "images": [
+       "img/harleyDavidson/iron883.jpg",
+        "img/harleyDavidson/iron883_2.jpg",
+		"img/harleyDavidson/iron883_3.jpg",
+		"img/harleyDavidson/iron883_4.jpg",
+        "img/harleyDavidson/iron883_5.jpg",
+        "img/harleyDavidson/iron883_6.jpg"    
+    ], 
+    "name": "IRON 833™", 
+    "sizeAndWeight": {
+        "dimensions": [
+            "1515   mm (w)", 
+            "760    mm (h)", 
+            "2185   mm (l)"
+        ], 
+        "weight": "256 kg"
+    }, 
+    "space": {
+        "volume": "12.5"
+    }
+}

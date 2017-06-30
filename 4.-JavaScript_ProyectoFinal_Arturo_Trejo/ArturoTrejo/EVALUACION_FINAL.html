@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html><!--Inicio del documento HTML-->
+<head><!--Encabezado-->
+      <meta charset = "UTF-8"> <!--Codificacion -->
+      <title>NOTAS DE 10 ALUMNOS</title> <!--Titulo del documento-->
+</head>
+<body><!--Cuerpo del documento-->
+	   
+     <!--Identificadores que muestran resultados en pantalla-->
+    <p id = "estudiantes"></p>
+	  <p id = "promedio"></p>
+    <p id = "notaMayor"></p>
+	  <p id = "notaMenor"></p>
+    
+     <!--Botones del menu prioncipal-->
+	  <button onclick = "MostrarEstudiantes()">Estudiantes</button>
+	  <button onclick = "MostrarNotaPromedio()">Promedio</button>
+	  <button onclick = "MostrarEstudianteNotaMa()">Nota Mayor</button>
+	  <button onclick = "MostrarEstudianteNotaMe()">Nota Menor</button>
+</body>
+<script type ="text/javascript"> //Inicia el Codigo 
+       
+       //Declaracion de la variable estudiantes con 10 elementos donde se ingresan sus datos.
+       var estudiantes = [
+           {
+           	"codigo":"01",
+           	"nombre":"Stina",
+           	"nota":100
+           },
+
+           {
+           	"codigo":"02",
+           	"nombre":"Arturo",
+           	"nota":90,
+           },
+
+           {
+           	"codigo":"03",
+           	"nombre":"Helena",
+           	"nota":99
+           },
+
+           {
+           	"codigo":"04",
+           	"nombre":"Ivan",
+           	"nota": 90
+           },
+
+           {
+           	"codigo":"05",
+           	"nombre":"Gerard",
+           	"nota": 58
+           },
+
+           {
+           	"codigo":"06",
+           	"nombre":"Patricia",
+           	"nota": 76
+           },
+
+           {
+           	"codigo":"07",
+           	"nombre":"Chris",
+           	"nota":50
+           },
+
+           {
+           	"codigo":"08",
+           	"nombre":"Brittany",
+           	"nota": 40
+           },
+
+           {
+           	"codigo":"09",
+           	"nombre":"Axl",
+           	"nota":0
+           },
+
+           {
+           	"codigo":"10",
+           	"nombre":"Eire",
+           	"nota":90
+           }
+       ];
+
+      function ReadJson(json) //Funcion que lee el Json de estudiantes
+        {
+        	var outlet = "*******ESTUDIANTES*******";
+        	for(var i = 0; i < json.length; i++) //Ciclo para leer los elementos 
+        	{
+        	  outlet +=  "<br>" + "Codigo: " +json[i].codigo +"-"+ "Nombre: "+json[i].nombre+"-"+"Nota: "+json[i].nota+"<br>"; 	// Salida de los elementos del Json 
+        	}
+        	document.getElementById("estudiantes").innerHTML = outlet; //Impresion en pantall de los estudiantes, su codigo y sus notas.
+        }
+
+
+      function Promedio(json) //Funcion que calcula el promerio de las notas
+       {
+        var pro = ""//Variable para almacenar el promedio de los estudiantes.
+        var sum = 0;//Variable que acumula las notas.
+
+          for(i=0; i<json.length; i++)//Ciclo para recorrer la cantidad de elementos del Json
+             {
+              sum +=json[i].nota;//Acumulacion y suma de las notas,
+             }
+             pro = sum/json.length;//La suma total entre la cantuidad de elementos = promedio
+                                      // Impresion del promedio
+             document.getElementById("promedio").innerHTML ="El PROMEDIO es: <br>" +pro;
+       } 
+
+
+      function CalcularNotaMayor(json) //Funcion para calculas las nota mayores de los estudiantes. 
+       {
+       	var out = "*******Nota Mayor*******<br>";
+       	var NotaMayor = json[0].nota;//Se toma al primer elemento del Json como nota mayor. 
+       	var pos = 0; //Y su a posicion se le asigna el valor 0;
+       	var aux = ""; //Se declara la variable aux para ir acumulando los nombres.
+
+       	for( i=0; i < json.length; i++) //El ciclo continuara hasta que llegue al ultimo elemento del Json de acuerdo a su longitud
+       	  {
+            if(json[i].nota >= 90)//Si la nota es mayor o igual a 90...
+            {
+              NotaMayor = json[i].nota;//...NotaMayor toma su valor
+              pos = i; //pos toma el valor de indice de i
+              aux = aux + json[pos].nombre + "<br>";//aux suma y acumula los nombres
+            }
+       	  }
+        document.getElementById("notaMayor").innerHTML = "Los Estudiantes con MAYOR Nota son: <br> " +aux; //Impresion en pantalla de los estudaintes con nota mayor.
+       }  
+
+
+      function CalcularNotaMenor(json) //Funcion para calcular la nota menor
+       {
+        var out = "*******Nota Menor*******";
+        var NotaMenor = json[0].nota;//Nota menor toma el valor del primer elemento del Json
+        var pos = 0;//Se declara el valor de pos con el valor 0.
+        var aux ="";//Se declara aux con "" para almacenar cadena de caracteres
+
+         for(var i = 0; i < json.length; i++)//Ciclo para recorrer la cantidad de elementos
+           {
+            if(json[i].nota <= 70)//Si la nota es menor o igual a 70...
+             {
+               NotaMenor = json[i].nota;//...NotaMenor toma su valor.  
+               pos = i;//pos toma el valor de indice de i
+               aux = aux + json[pos].nombre + "<br>";//aux suma y acumula los nombres
+             }
+           }
+           document.getElementById("notaMenor").innerHTML = "Los Estudiantes con MENOR Nota son: <br> " +aux;//Impresion de los estudiantes con nota menor.
+       }
+
+
+      function MostrarEstudiantes() //Boton que muestra el Json de lo estudiantes
+       {
+         ReadJson(estudiantes);
+       } 
+
+      function MostrarNotaPromedio() //Boton que muestra el promedio
+       {
+        Promedio(estudiantes);
+       } 
+
+      function MostrarEstudianteNotaMa()//Boton que muestra la nota mayor
+       {
+         CalcularNotaMayor(estudiantes);
+       } 
+
+      function MostrarEstudianteNotaMe()//Boton que muestra la nota menor
+       {
+        CalcularNotaMenor(estudiantes);
+       } 
+
+</script> <!--Fin del Script--> 
+</html> <!--Fin del documento HTML-->

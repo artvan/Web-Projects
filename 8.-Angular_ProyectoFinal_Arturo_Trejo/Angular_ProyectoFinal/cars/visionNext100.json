@@ -1,0 +1,33 @@
+{
+    "manufacturer": {
+        "name": "BMW", 
+        "country": "Germany"
+    }, 
+    "engine": {
+        "gears": "--", 
+        "transmission": "8-speed; Direct transmission without clutch", 
+        "type": "Electrical 711NM"
+    }, 
+    "description": "Lets you break out of your daily routine. From the moment you get on this bike you can feel total freedom immediately.",  
+    "id": "visionNext100", 
+    "images": [
+        "img/bmw/visionNext100.jpg",
+        "img/bmw/visionNext100.2.jpg",
+        "img/bmw/visionNext100.3.jpg",
+        "img/bmw/visionNext100.4.jpg",
+        "img/bmw/visionNext100.5.jpg",
+        "img/bmw/visionNext100.6.jpg"       
+    ], 
+    "name": "Vision Next 100™", 
+    "sizeAndWeight": {
+        "dimensions": [
+            "  37.5 in (w)", 
+            "  76.6 in (h)", 
+            "  117.2 in (l)"
+        ], 
+        "weight": "324 Kg"
+    }, 
+    "space": {
+        "volume": "7.11"
+    }
+}
